@@ -7,10 +7,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using angulartest.Models;
+using Microsoft.EntityFrameworkCore;
+using lifeauthor.Models;
 
 
-namespace angulartest
+namespace lifeauthor
 {
     public class Startup
     {
@@ -25,8 +26,9 @@ namespace angulartest
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.Configure<MySqlOptions>(Configuration.GetSection("DBInfo"));
-            services.AddDbContext<angulartestContext>(options => options.UseMySql(Configuration["DBInfo:ConnectionString"]));
+            services.AddSession();
+            services.AddDbContext<lifeauthorContext>(options =>
+            options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +48,8 @@ namespace angulartest
             }
 
             app.UseStaticFiles();
+
+            app.UseSession();
 
             app.UseMvc(routes =>
             {
