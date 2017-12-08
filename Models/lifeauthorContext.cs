@@ -8,9 +8,9 @@ namespace lifeauthor.Models
         public lifeauthorContext(DbContextOptions<lifeauthorContext> options) : base(options) { }
         public DbSet<Users> users { get; set; }
 
-        public DbSet<Calendar> dates { get; set; }
+        public DbSet<Calendar> calendar { get; set; }
 
-        public DbSet<Agenda> agendas { get; set; }
+        public DbSet<Agenda> agenda { get; set; }
 
     }
 }
