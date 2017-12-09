@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using lifeauthor.Models;
 
 namespace lifeauthor.Controllers
 {
+
     [Route("api/[controller]")]
     public class SampleDataController : Controller
     {
@@ -15,6 +17,14 @@ namespace lifeauthor.Controllers
         };
 
         [HttpGet("[action]")]
+        public Users Usersdata()
+        {
+            System.Console.WriteLine("At SampleDataController");
+            Users jeff = new Users();
+            jeff.name = "jeff";
+            jeff.email = "theunstoppable@me.com";
+            return jeff;
+        }
         public IEnumerable<WeatherForecast> WeatherForecasts()
         {
             var rng = new Random();
