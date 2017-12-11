@@ -8,7 +8,7 @@
   <div style="display: inline-block; width: 200px; border:black solid 2px; text-align:center;">
     <h1>Monday</h1>
     <h2>4th</h2>
-    <form>
+    <form (submit)="submitting()">
       <textarea></textarea>
       <input type="submit" value="Submit">
       <input type="hidden" [value]="day">
