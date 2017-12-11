@@ -17,6 +17,7 @@ namespace lifeauthor
     {
         public Startup(IConfiguration configuration)
         {
+            
             Configuration = configuration;
         }
 
