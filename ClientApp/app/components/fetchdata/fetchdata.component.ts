@@ -1,23 +1,28 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, Input } from '@angular/core';
 import { Http } from '@angular/http';
+import * as $ from "jquery";
 
 @Component({
     selector: 'fetchdata',
     templateUrl: './fetchdata.component.html'
 })
 export class FetchDataComponent {
-    public forecasts: WeatherForecast[];
-
-    constructor(http: Http, @Inject('BASE_URL') baseUrl: string) {
-        http.get(baseUrl + 'api/SampleData/WeatherForecasts').subscribe(result => {
-            this.forecasts = result.json() as WeatherForecast[];
-        }, error => console.error(error));
+    @Input() weekday: string;
+    toggleNotes_m(){
+        $(".notesContent_m").slideDown();
+        $(".journalContent_m").slideUp();
+        $(".agendaContent_m").slideUp();
+        console.log("Notes")
+    }
+    toggleJournal_m(){
+        $(".journalContent_m").slideDown();
+        $(".notesContent_m").slideUp();
+        $(".agendaContent_m").slideUp();
+    }
+    toggleAgenda_m(){
+        $(".journalContent_m").slideUp();
+        $(".notesContent_m").slideUp();
+        $(".agendaContent_m").slideDown();
     }
 }
 
-interface WeatherForecast {
-    dateFormatted: string;
-    temperatureC: number;
-    temperatureF: number;
-    summary: string;
-}
