@@ -1,4 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
+
 <div style="text-align:center">
     <h1>
       Welcome to Atlanta!!
@@ -8,66 +9,281 @@
   <div style="display: inline-block; width: 200px; border:black solid 2px; text-align:center;">
     <h1>Monday</h1>
     <h2>4th</h2>
-    <form (submit)="getnotes()">
-      <textarea>{{person | json}}</textarea>
-      <input type="submit" value="Submit">
-      <input type="hidden" [value]="day">
-    </form>
+    <div class="holder">
+        <div class="topAgenda">
+          <h4 (click)="toggleAgenda_m()">Agenda</h4>
+          <div class="agendaContent_m" >
+            <form (submit)="getnotes()">
+              <textarea>{{person | json}}</textarea>
+              <input type="submit" value="Submit">
+              <input type="hidden" [value]="day">
+            </form>
+          </div>
+        </div>
+      </div>
+    <div class="holder">
+      <div class="topnotes">
+        <h4 (click)="toggleNotes_m()">Notes</h4>
+        <div class="notesContent_m" style="display:none;">
+          <form (submit)="getnotes()">
+            <textarea>{{person | json}}</textarea>
+            <input type="submit" value="Submit">
+            <input type="hidden" [value]="day">
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="holder">
+        <div class="topJournal">
+          <h4 (click)="toggleJournal_m()">Journal</h4>
+          <div class="journalContent_m" style="display:none;">
+            <form (submit)="getnotes()">
+              <textarea>{{person | json}}</textarea>
+              <input type="submit" value="Submit">
+              <input type="hidden" [value]="day">
+            </form>
+          </div>
+        </div>
+      </div>
   </div>
   <div style="display: inline-block; width: 200px; border:black solid 2px; text-align:center;">
     <h1>Tuesday</h1>
     <h2>5th</h2>
-    <form>
-      <textarea></textarea>
-      <input type="submit" value="Submit">
-      <input type="hidden" [value]="day">
-    </form>
+    <div class="holder">
+        <div class="topAgenda">
+          <h4 (click)="toggleAgenda_tu()">Agenda</h4>
+          <div class="agendaContent_tu" >
+            <form (submit)="getnotes()">
+              <textarea>{{person | json}}</textarea>
+              <input type="submit" value="Submit">
+              <input type="hidden" [value]="day">
+            </form>
+          </div>
+        </div>
+      </div>
+    <div class="holder">
+      <div class="topnotes">
+        <h4 (click)="toggleNotes_tu()">Notes</h4>
+        <div class="notesContent_tu" style="display:none;">
+          <form (submit)="getnotes()">
+            <textarea>{{person | json}}</textarea>
+            <input type="submit" value="Submit">
+            <input type="hidden" [value]="day">
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="holder">
+        <div class="topJournal">
+          <h4 (click)="toggleJournal_tu()">Journal</h4>
+          <div class="journalContent_tu" style="display:none;">
+            <form (submit)="getnotes()">
+              <textarea>{{person | json}}</textarea>
+              <input type="submit" value="Submit">
+              <input type="hidden" [value]="day">
+            </form>
+          </div>
+        </div>
+      </div>
   </div>
   <div style="display: inline-block; width: 200px; border:black solid 2px; text-align:center;">
     <h1>Wednesday</h1>
     <h2>6th</h2>
-    <form>
-      <textarea></textarea>
-      <input type="submit" value="Submit">
-      <input type="hidden" [value]="day">
-    </form>
+    <div class="holder">
+        <div class="topAgenda">
+          <h4 (click)="toggleAgenda_w()">Agenda</h4>
+          <div class="agendaContent_w" >
+            <form (submit)="getnotes()">
+              <textarea>{{person | json}}</textarea>
+              <input type="submit" value="Submit">
+              <input type="hidden" [value]="day">
+            </form>
+          </div>
+        </div>
+      </div>
+    <div class="holder">
+      <div class="topnotes">
+        <h4 (click)="toggleNotes_w()">Notes</h4>
+        <div class="notesContent_w" style="display:none;">
+          <form (submit)="getnotes()">
+            <textarea>{{person | json}}</textarea>
+            <input type="submit" value="Submit">
+            <input type="hidden" [value]="day">
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="holder">
+        <div class="topJournal">
+          <h4 (click)="toggleJournal_w()">Journal</h4>
+          <div class="journalContent_w" style="display:none;">
+            <form (submit)="getnotes()">
+              <textarea>{{person | json}}</textarea>
+              <input type="submit" value="Submit">
+              <input type="hidden" [value]="day">
+            </form>
+          </div>
+        </div>
+      </div>
   </div>
   <div style="display: inline-block; width: 200px; border:black solid 2px; text-align:center;">
     <h1>Thursday</h1>
     <h2>7th</h2>
-    <form>
-      <textarea></textarea>
-      <input type="submit" value="Submit">
-      <input type="hidden" [value]="day">
-    </form>
+    <div class="holder">
+        <div class="topAgenda">
+          <h4 (click)="toggleAgenda_th()">Agenda</h4>
+          <div class="agendaContent_th" >
+            <form (submit)="getnotes()">
+              <textarea>{{person | json}}</textarea>
+              <input type="submit" value="Submit">
+              <input type="hidden" [value]="day">
+            </form>
+          </div>
+        </div>
+      </div>
+    <div class="holder">
+      <div class="topnotes">
+        <h4 (click)="toggleNotes_th()">Notes</h4>
+        <div class="notesContent_th" style="display:none;">
+          <form (submit)="getnotes()">
+            <textarea>{{person | json}}</textarea>
+            <input type="submit" value="Submit">
+            <input type="hidden" [value]="day">
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="holder">
+        <div class="topJournal">
+          <h4 (click)="toggleJournal_th()">Journal</h4>
+          <div class="journalContent_th" style="display:none;">
+            <form (submit)="getnotes()">
+              <textarea>{{person | json}}</textarea>
+              <input type="submit" value="Submit">
+              <input type="hidden" [value]="day">
+            </form>
+          </div>
+        </div>
+      </div>
   </div>
   <div style="display: inline-block; width: 200px; border:black solid 2px; text-align:center;">
     <h1>Friday</h1>
     <h2>8th</h2>
-    <form>
-      <textarea></textarea>
-      <input type="submit" value="Submit">
-      <input type="hidden" [value]="day">
-    </form>
+    <div class="holder">
+        <div class="topAgenda">
+          <h4 (click)="toggleAgenda_f()">Agenda</h4>
+          <div class="agendaContent_f" >
+            <form (submit)="getnotes()">
+              <textarea>{{person | json}}</textarea>
+              <input type="submit" value="Submit">
+              <input type="hidden" [value]="day">
+            </form>
+          </div>
+        </div>
+      </div>
+    <div class="holder">
+      <div class="topnotes">
+        <h4 (click)="toggleNotes_f()">Notes</h4>
+        <div class="notesContent_f" style="display:none;">
+          <form (submit)="getnotes()">
+            <textarea>{{person | json}}</textarea>
+            <input type="submit" value="Submit">
+            <input type="hidden" [value]="day">
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="holder">
+        <div class="topJournal">
+          <h4 (click)="toggleJournal_f()">Journal</h4>
+          <div class="journalContent_f" style="display:none;">
+            <form (submit)="getnotes()">
+              <textarea>{{person | json}}</textarea>
+              <input type="submit" value="Submit">
+              <input type="hidden" [value]="day">
+            </form>
+          </div>
+        </div>
+      </div>
   </div>
   <div style="display: inline-block; width: 200px; border:black solid 2px; text-align:center;">
     <h1>Saturday</h1>
     <h2>9th</h2>
-    <form>
-      <textarea></textarea>
-      <input type="submit" value="Submit">
-      <input type="hidden" [value]="day">
-    </form>
+    <div class="holder">
+        <div class="topAgenda">
+          <h4 (click)="toggleAgenda_sa()">Agenda</h4>
+          <div class="agendaContent_sa" >
+            <form (submit)="getnotes()">
+              <textarea>{{person | json}}</textarea>
+              <input type="submit" value="Submit">
+              <input type="hidden" [value]="day">
+            </form>
+          </div>
+        </div>
+      </div>
+    <div class="holder">
+      <div class="topnotes">
+        <h4 (click)="toggleNotes_sa()">Notes</h4>
+        <div class="notesContent_sa" style="display:none;">
+          <form (submit)="getnotes()">
+            <textarea>{{person | json}}</textarea>
+            <input type="submit" value="Submit">
+            <input type="hidden" [value]="day">
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="holder">
+        <div class="topJournal">
+          <h4 (click)="toggleJournal_sa()">Journal</h4>
+          <div class="journalContent_sa" style="display:none;">
+            <form (submit)="getnotes()">
+              <textarea>{{person | json}}</textarea>
+              <input type="submit" value="Submit">
+              <input type="hidden" [value]="day">
+            </form>
+          </div>
+        </div>
+      </div>
   </div>
   <div style="display: inline-block; width: 200px; border:black solid 2px; text-align:center;">
     <h1>Sunday</h1>
     <h2>10th</h2>
-    <form>
-      <textarea></textarea>
-      <input type="submit" value="Submit">
-      <input type="hidden" [value]="day">
-    </form>
+    <div class="holder">
+        <div class="topAgenda">
+          <h4 (click)="toggleAgenda_su()">Agenda</h4>
+          <div class="agendaContent_su" >
+            <form (submit)="getnotes()">
+              <textarea>{{person | json}}</textarea>
+              <input type="submit" value="Submit">
+              <input type="hidden" [value]="day">
+            </form>
+          </div>
+        </div>
+      </div>
+    <div class="holder">
+      <div class="topnotes">
+        <h4 (click)="toggleNotes_su()">Notes</h4>
+        <div class="notesContent_su" style="display:none;">
+          <form (submit)="getnotes()">
+            <textarea>{{person | json}}</textarea>
+            <input type="submit" value="Submit">
+            <input type="hidden" [value]="day">
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="holder">
+        <div class="topJournal">
+          <h4 (click)="toggleJournal_su()">Journal</h4>
+          <div class="journalContent_su" style="display:none;">
+            <form (submit)="getnotes()">
+              <textarea>{{person | json}}</textarea>
+              <input type="submit" value="Submit">
+              <input type="hidden" [value]="day">
+            </form>
+          </div>
+        </div>
+      </div>
   </div>
-  <p></p>
-  
   
