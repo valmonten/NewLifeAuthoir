@@ -8,21 +8,30 @@ import * as $ from "jquery";
 })
 export class FetchDataComponent {
     @Input() weekday: string;
-    toggleNotes_m(){
-        $(".notesContent_m").slideDown();
-        $(".journalContent_m").slideUp();
-        $(".agendaContent_m").slideUp();
-        console.log("Notes")
-    }
-    toggleJournal_m(){
-        $(".journalContent_m").slideDown();
-        $(".notesContent_m").slideUp();
-        $(".agendaContent_m").slideUp();
-    }
-    toggleAgenda_m(){
-        $(".journalContent_m").slideUp();
-        $(".notesContent_m").slideUp();
-        $(".agendaContent_m").slideDown();
-    }
+    @Input() monthday: number; 
+    public name : string = "Fetching"
+    public state : string ="agenda"
+    // public weekday: string = this.day[0];
+    // public monthday: string = this.day[1];
+    
+
+
+
+//     toggleNotes(){
+//         $(".notesContent").slideDown();
+//         $(".journalContent").slideUp();
+//         $(".agendaContent").slideUp();
+        
+//     }
+//     toggleJournal(){
+//         $(".journalContent").slideDown();
+//         $(".notesContent").slideUp();
+//         $(".agendaContent").slideUp();
+//     }
+//     toggleAgenda(){
+//         $(".journalContent").slideUp();
+//         $(".notesContent").slideUp();
+//         $(".agendaContent").slideUp();
+//     }
 }
 
