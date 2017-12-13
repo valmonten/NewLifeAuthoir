@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, Output, EventEmitter } from '@angular/core';
 import { Http } from '@angular/http';
 import * as $ from "jquery";
 
@@ -7,7 +7,12 @@ import * as $ from "jquery";
     templateUrl: './counter.component.html'
 })
 export class CounterComponent {
-    public something = "Something";
+    @Output() toshow = new EventEmitter();
+    
+    showing(){
+        this.toshow.emit();
+    }
+
     toggleNotes_m(){
         $(".notesContent_m").slideDown();
         $(".journalContent_m").slideUp();

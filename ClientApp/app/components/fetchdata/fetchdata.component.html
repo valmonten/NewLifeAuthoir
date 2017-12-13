@@ -1,7 +1,7 @@
 <div style="display: inline-block; width: 200px; border:black solid 2px; text-align:center;">
     <h1>{{weekday}}</h1>
     <h2>{{monthday}}</h2>
-    <home [show]='show'></home>
-    <nav-menu[show]='show'></nav-menu>
-    <counter [show]='show'></counter>
+    <home (toshow)='setchildren("agenda")'></home>
+    <nav-menu (toshow)='setchildren("notes")'></nav-menu>
+    <counter (toshow)='setchildren("journal")'></counter>
   </div>

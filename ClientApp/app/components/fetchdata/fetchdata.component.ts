@@ -10,7 +10,13 @@ export class FetchDataComponent {
     @Input() weekday: string;
     @Input() monthday: number; 
     public name : string = "Fetching"
-    public state : string ="agenda"
+
+    setchildren(toshow: string){
+        console.log("We in Fetch showing " + toshow);
+        if(toshow== "agenda"){
+            
+        }
+    }
     // public weekday: string = this.day[0];
     // public monthday: string = this.day[1];
     
