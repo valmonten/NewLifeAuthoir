@@ -10,8 +10,8 @@ namespace lifeauthor.Models
     public class Calendar : BaseEntity
 
     {
-        [Key]
-        public int DateId { get; set; } 
+        [Key] 
+        public int calendarid {get; set; }
         public DateTime dt { get; set; }
         public int y { get; set; }
         public int q { get; set; }

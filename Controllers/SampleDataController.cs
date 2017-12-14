@@ -17,10 +17,13 @@ namespace lifeauthor.Controllers
         {
             _context= context;
         }
-        private static string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
+        
+     [HttpGet("[action]")]
+        public Calendar CalendarData()
+        {   var mydate = DateTime.Today;
+            Calendar mycalendar = _context.calendar_table.Where(a=>a.dt == mydate ).SingleOrDefault();
+            return mycalendar;
+        }
 
         [HttpGet("[action]")]
         public User Usersdata()
@@ -39,33 +42,9 @@ namespace lifeauthor.Controllers
         [HttpGet("[action]")]
         public Journal JournalData()
         {
-            Journal myjournals = _context.journals.Where(a=>a.idjournals == 1).SingleOrDefault();
+            Journal myjournals = _context.journals.Where(a=>a.idjournals == 2).SingleOrDefault();
             return myjournals;
         }
-        public IEnumerable<WeatherForecast> WeatherForecasts()
-        {
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                DateFormatted = DateTime.Now.AddDays(index).ToString("d"),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            });
-        }
-
-        public class WeatherForecast
-        {
-            public string DateFormatted { get; set; }
-            public int TemperatureC { get; set; }
-            public string Summary { get; set; }
-
-            public int TemperatureF
-            {
-                get
-                {
-                    return 32 + (int)(TemperatureC / 0.5556);
-                }
-            }
-        }
+        
     }
 }
