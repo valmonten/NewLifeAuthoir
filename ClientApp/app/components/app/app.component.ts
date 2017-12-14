@@ -10,13 +10,15 @@ import * as $ from "jquery";
 export class AppComponent {
     public dateObject: Calendar;
     public today: Date;
-    public weekday: number;
+    public weekday: Date;
+    public resulting: any;
 
     constructor(http: Http, @Inject('BASE_URL') baseUrl: string) {
         http.get(baseUrl + 'api/SampleData/CalendarData').subscribe(result => {
             this.dateObject = result.json() as Calendar;
             this.today = result.json().dt;
             this.weekday = result.json().dw;
+            this.resulting = result.json();
 
            
         }, error => console.error(error));
@@ -24,39 +26,39 @@ export class AppComponent {
     }
 
     public Monday: string = "Monday"
-    public monthday1: number = 11;
+    public monthday1 = 5;
 
     public Tuesday: string = "Tuesday"
-    public monthday2: number = 12;
+    public monthday2: Date = this.today;
 
     public Wednesday: string = "Wednesday"
-    public monthday3: number = 13;
+    public monthday3: Date = this.today;
 
     public Thursday: string = "Thursday"
     public monthday4: Date = this.today;
 
     public Friday: string = "Friday"
-    public monthday5: number = 15;
+    public monthday5: Date = this.today;
 
     public Saturday: string = "Saturday"
-    public monthday6: number = 16;
+    public monthday6: Date = this.today;
 
     public Sunday: string = "Sunday"
-    public monthday7: number = 17;
+    public monthday7: Date = this.today;
 
 }
 
 interface Calendar{
-    calendarid: number;
+    calendarid: Date;
     dt: Date;
-    y: number;
-    q: number;
-    m: number;
-    d: number;
-    dw: number;
+    y: Date;
+    q: Date;
+    m: Date;
+    d: Date;
+    dw: Date;
     monthName: string;
     dayName: string;
-    w: number;
+    w: Date;
 
 
 

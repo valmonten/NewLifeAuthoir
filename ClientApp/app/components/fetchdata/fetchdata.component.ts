@@ -8,7 +8,8 @@ import * as $ from "jquery";
 })
 export class FetchDataComponent {
     @Input() weekday: string;
-    @Input() monthday: number; 
+    @Input() monthday: Date; 
+    
     public name : string = "Fetching"
 
     setchildren(toshow: string){
