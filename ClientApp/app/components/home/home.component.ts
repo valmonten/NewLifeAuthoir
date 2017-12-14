@@ -11,7 +11,7 @@ export class HomeComponent {
     @Input() weekday: string;
     
     showing(){
-        $("."+this.weekday+"_a_content").slideToggle();
+        $("."+this.weekday+"_a_content").slideDown();
         $("."+this.weekday+"_n_content").slideUp();
         $("."+this.weekday+"_j_content").slideUp();
     }

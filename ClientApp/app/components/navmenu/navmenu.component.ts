@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import * as $ from "jquery";
 
 
@@ -9,12 +9,11 @@ import * as $ from "jquery";
 })
 export class NavMenuComponent {
     @Output() toshow = new EventEmitter();
-    
-    hideme(){
-        $('.content').slideDown();
-    }
+    @Input() weekday: string;
+
     showing(){
-        this.toshow.emit();
-        $('this.content').slideDown();
+        $("."+this.weekday+"_a_content").slideUp();
+        $("."+this.weekday+"_n_content").slideDown();
+        $("."+this.weekday+"_j_content").slideUp();
     }
 }
