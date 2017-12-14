@@ -7,12 +7,11 @@ import * as $ from "jquery";
 export class HomeComponent {
     @Input() showagenda: boolean;
     @Output() toshow = new EventEmitter();
-    // @Input() weekday: string;
     public depends: string = "abc"
-    public weekday: string = "Monday";
+    @Input() weekday: string;
     
     showing(){
-        $("."+this.weekday+"_a_content").slideDown();
+        $("."+this.weekday+"_a_content").slideToggle();
         $("."+this.weekday+"_n_content").slideUp();
         $("."+this.weekday+"_j_content").slideUp();
     }
