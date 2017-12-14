@@ -22,8 +22,8 @@ namespace lifeauthor.Models
         public int users_id { get; set; }
         // public User author { get; set; }
 
-        [ForeignKey("calendar_dateId")]
-        public int calendar_dateId { get; set; }
+        [ForeignKey("calendarid")]
+        public int calendarid { get; set; }
         // public Calendar calendar { get; set; }
 
 

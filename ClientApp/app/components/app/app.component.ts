@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Inject, Output, EventEmitter } from '@angular/core';
+import { Http } from '@angular/http';
+import * as $ from "jquery";
 
 @Component({
     selector: 'app',
@@ -6,6 +8,17 @@ import { Component } from '@angular/core';
     styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+    public thedate: Calendar;
+
+    constructor(http: Http, @Inject('BASE_URL') baseUrl: string) {
+        http.get(baseUrl + 'api/SampleData/CalendarData').subscribe(result => {
+            this.thedate = result.json() as Calendar;
+
+           
+        }, error => console.error(error));
+
+    }
+
     public Monday: string = "Monday"
     public monthday1: number = 11;
 
@@ -26,5 +39,21 @@ export class AppComponent {
 
     public Sunday: string = "Sunday"
     public monthday7: number = 17;
+
+}
+
+interface Calendar{
+    calendarid: number;
+    dt: Date;
+    y: number;
+    q: number;
+    m: number;
+    d: number;
+    dw: number;
+    monthName: string;
+    dayName: string;
+    w: number;
+
+
 
 }
