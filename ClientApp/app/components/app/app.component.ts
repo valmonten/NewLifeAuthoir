@@ -8,11 +8,15 @@ import * as $ from "jquery";
     styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    public thedate: Calendar;
+    public dateObject: Calendar;
+    public today: Date;
+    public weekday: number;
 
     constructor(http: Http, @Inject('BASE_URL') baseUrl: string) {
         http.get(baseUrl + 'api/SampleData/CalendarData').subscribe(result => {
-            this.thedate = result.json() as Calendar;
+            this.dateObject = result.json() as Calendar;
+            this.today = result.json().dt;
+            this.weekday = result.json().dw;
 
            
         }, error => console.error(error));
@@ -29,7 +33,7 @@ export class AppComponent {
     public monthday3: number = 13;
 
     public Thursday: string = "Thursday"
-    public monthday4: number = 14;
+    public monthday4: Date = this.today;
 
     public Friday: string = "Friday"
     public monthday5: number = 15;
