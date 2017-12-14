@@ -13,9 +13,10 @@ export class FetchDataComponent {
 
     setchildren(toshow: string){
         console.log("We in Fetch showing " + toshow);
-        if(toshow== "agenda"){
-            
-        }
+        
+    }
+    hideme(){
+        $("."+this.weekday).hide();
     }
     // public weekday: string = this.day[0];
     // public monthday: string = this.day[1];
