@@ -1,11 +1,18 @@
+<fetchdata [weekday]='Sunday' [monthday]='today'></fetchdata>
 <fetchdata [weekday]='Monday' [monthday]='today'></fetchdata>
 <fetchdata [weekday]='Tuesday' [monthday]='today'></fetchdata>
 <fetchdata [weekday]='Wednesday' [monthday]='today'></fetchdata>
 <fetchdata [weekday]='Thursday' [monthday]='today'></fetchdata>
 <fetchdata [weekday]='Friday' [monthday]='today'></fetchdata>
 <fetchdata [weekday]='Saturday' [monthday]='today'></fetchdata>
-<fetchdata [weekday]='Sunday' [monthday]='today'></fetchdata>
 
-<p>{{thedate | json}}</p>
-<h1>{{monthday1 | date : "MMM, d"}} here</h1>
+
+<p>{{dateObject | json}}</p>
+<!-- <h1>{{monthday1 | date : "MMM, d"}} here</h1> -->
+<p> </p>
 <h1>teste</h1>
+<h2>{{currentweek}}</h2>
+<ul>
+    <li *ngFor="let item of dayarray">{{item | date : "MMM, d"}}</li>
+
+</ul> 
