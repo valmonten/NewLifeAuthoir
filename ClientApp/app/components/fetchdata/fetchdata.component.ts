@@ -8,7 +8,16 @@ import * as $ from "jquery";
 })
 export class FetchDataComponent {
     @Input() weekday: string;
-    @Input() monthday: number; 
+    @Input() monthday: Date;
+    @Input() dayarray: Array<Date>;
+    
+    showdate(){
+        var showdate = this.dayarray[3];
+        console.log(this.showdate);
+    }
+     
+    
+    
     public name : string = "Fetching"
 
     setchildren(toshow: string){
@@ -41,4 +50,6 @@ export class FetchDataComponent {
 //         $(".agendaContent").slideUp();
 //     }
 }
+
+
 
