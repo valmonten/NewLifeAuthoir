@@ -10,6 +10,8 @@ import { HomeComponent } from './components/home/home.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { TimeblockComponent } from './components/timeblock/timeblock.component';
+import { TimeblockcompComponent } from './components/timeblockcomp/timeblockcomp.component';
+import { AddeventComponent } from './components/addevent/addevent.component'
 
 @NgModule({
     declarations: [
@@ -18,7 +20,9 @@ import { TimeblockComponent } from './components/timeblock/timeblock.component';
         CounterComponent,
         FetchDataComponent,
         HomeComponent,
-        TimeblockComponent
+        TimeblockComponent,
+        TimeblockcompComponent,
+        AddeventComponent
     ],
     imports: [
         CommonModule,

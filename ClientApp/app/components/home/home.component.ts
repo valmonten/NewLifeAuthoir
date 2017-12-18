@@ -5,8 +5,7 @@ import * as $ from "jquery";
     templateUrl: './home.component.html'
 })
 export class HomeComponent {
-    @Input() showagenda: boolean;
-    @Output() toshow = new EventEmitter();
+    
     public depends: string = "abc"
     @Input() weekday: string;
     public x1: string = "1am"
