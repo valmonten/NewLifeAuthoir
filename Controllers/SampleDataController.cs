@@ -133,19 +133,22 @@ namespace lifeauthor.Controllers
         [HttpGet("[action]")]
         public String[] JournalData()
         {
-            int[] dailyjournal = TheWeek();
+            int[] dailyjournals = TheWeek();
             String[] myjournals = new String[7];
-            for(int k=0; k<dailyjournal.Length; k++){
-                int test = dailyjournal[k];
+            for(int k=0; k<dailyjournals.Length; k++){
+                int test = dailyjournals[k];
             Journal journals = _context.journals.Where(a=>a.calendarid == test).SingleOrDefault();
-            myjournals[k]= journals.contents;  
+            if(journals == null){
+                myjournals[k]=" ";
+            }
+            else {myjournals[k]= journals.contents;}  
             }
             
             return myjournals;
         }
 
         [HttpPost("[action]")]  
-        public IActionResult Save([FromBody] object[] data)  
+        public IActionResult SaveJournal([FromBody] object[] data)  
         {       
                 
                 bool isNew = false;
@@ -167,6 +170,32 @@ namespace lifeauthor.Controllers
                  
                 _context.SaveChanges();
                 return Ok(plan); 
+            
+        } 
+
+        [HttpPost("[action]")]  
+        public IActionResult SaveNotes([FromBody] object[] data)  
+        {       
+                
+                bool isNew = false;
+                Calendar something = _context.calendar_table.Where(p => p.dt == (DateTime)data[1] ).FirstOrDefault();
+                Note plan2 = _context.notes.Where(k => k.calendarid == something.calendarid ).FirstOrDefault();
+                if( plan2 == null){
+                    plan2 = new Note();
+                    isNew = true;
+                }
+                    plan2.mynotes = (string)data[0];
+                    plan2.calendarid = something.calendarid;
+                    plan2.users_id = 1;  
+                    plan2.updated_at = DateTime.Now;  
+                
+                if (isNew){
+                    plan2.created_at = DateTime.Now;
+                   _context.notes.Add(plan2); 
+                }
+                 
+                _context.SaveChanges();
+                return Ok(plan2); 
             
         } 
 
