@@ -24,6 +24,7 @@ export class FetchDataComponent {
         console.log("We in Fetch showing " + toshow);
         
     }
+    
     // public weekday: string = this.day[0];
     // public monthday: string = this.day[1];
     

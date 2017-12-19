@@ -34,6 +34,14 @@ export class TimeblockcompComponent {
     public x23: string = "11pm"
     public x24: string = "12am"
 
+    newagenda(){
+        
+            
+            $("."+this.weekday+"addevent").slideDown();
+            $("."+this.weekday+"timeblocks").slideUp();
+        
+    }
+
 
     
 
