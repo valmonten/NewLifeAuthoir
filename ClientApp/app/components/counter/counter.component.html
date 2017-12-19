@@ -2,7 +2,7 @@
   <div class="topJournal">
     <h4 (click)="showing()">Journal</h4>
     <div class="{{weekday}}_j_content" style="display:none;">
-      <form (submit)="getnotes()">
+      <form>
         <textarea></textarea>
         <input type="submit" value="Submit">
         <input type="hidden" [value]="day">
