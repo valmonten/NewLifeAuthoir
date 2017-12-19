@@ -10,6 +10,7 @@ import * as $ from "jquery";
 export class NavMenuComponent {
     @Output() toshow = new EventEmitter();
     @Input() weekday: string;
+    @Input() date: Date;
 
     showing(){
         $("."+this.weekday+"_a_content").slideUp();
