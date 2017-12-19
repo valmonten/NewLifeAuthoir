@@ -14,10 +14,31 @@ export class NavMenuComponent {
     @Input() weekday: string;
     @Input() date: Date;
     public detail: object;
+    public DisplayNote: Array<string>;
+    public dayarray: Array<Date>;
+    public Entry: string;
     private route: ActivatedRoute;
     private redirect: Router;
 
     constructor(private http: Http, @Inject('BASE_URL') private baseUrl: string) {
+        http.get(baseUrl + 'api/SampleData/DayOfWeek').subscribe(result => {
+            this.dayarray = result.json();
+            
+        }, error => console.error(error));
+    
+        http.get(baseUrl + 'api/SampleData/NoteData').subscribe(result => {
+            this.DisplayNote = result.json();
+    
+            for( let entry in this.dayarray){
+                if (this.date == this.dayarray[entry]){
+                //fix null exceptions with if statemnt 
+                    console.log(this.DisplayNote[entry])
+                    this.Entry = this.DisplayNote[entry];
+                    console.log(this.Entry);
+                }
+            }
+            
+        }, error => console.error(error));
     }
 
     showing(){

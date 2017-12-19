@@ -124,7 +124,10 @@ namespace lifeauthor.Controllers
             for(int k=0; k<dailynote.Length; k++){
                 int test = dailynote[k];
             Note notes = _context.notes.Where(a=>a.calendarid == test).SingleOrDefault();
-            mynotes[k]= notes.mynotes;  
+            if(notes == null){
+                mynotes[k]=" ";
+            }
+            else{mynotes[k]= notes.mynotes;}  
             }
             
             return mynotes;
