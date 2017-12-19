@@ -1,9 +1,7 @@
 <div style="display: inline-block; width: 200px; border:black solid 2px; text-align:center; vertical-align:top;">
-    <h1>{{weekday}}</h1>
-    <h2>{{monthday | date: "MMM, d"}}</h2>
-    <home class ="{{weekday}}" (toshow)='setchildren("agenda")' [weekday]='weekday'></home>
-    <nav-menu (toshow)='setchildren("notes")' [weekday]='weekday'></nav-menu>
-    <counter (toshow)='setchildren("journal")' [weekday]='weekday'></counter>
-  </div>
-
-
+  <h1 (click)="hideme()">{{weekday}}</h1>
+  <h2>{{monthday | date: "MMM, d"}}</h2>
+  <home class ="{{weekday}}" (toshow)='setchildren("agenda")' [weekday]='weekday'></home>
+  <nav-menu (toshow)='setchildren("notes")' [weekday]='weekday' [date]='monthday'></nav-menu>
+  <counter (toshow)='setchildren("journal")' [weekday]='weekday' [date]='monthday'></counter>
+</div>
