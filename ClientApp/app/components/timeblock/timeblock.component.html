@@ -1,4 +1,5 @@
 
-<div style="display:block; width: 196px; height: 25px; border:grey solid 1px;" class="{{weekday}}{{hour}}">
+<div style="display:block; width: 196px; height: 25px; border:grey solid 1px;" class="{{weekday}}{{hour}}" (mouseenter)="mousein()" (mouseleave)="mouseout()" >
     <p (click)="newevent()">{{hour}}</p>
+    
   </div>

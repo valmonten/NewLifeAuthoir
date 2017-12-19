@@ -1,6 +1,7 @@
 
     <div class="topAgenda">
         <h4 (click)="showing()">Agenda</h4>
+        <p class="{{weekday}}readevent"></p>
         <div class="{{weekday}}_a_content">
             <addevent [weekday]='weekday' style="display:none;" class="{{weekday}}addevent"></addevent>
             <timeblockcomp [weekday]='weekday' class="{{weekday}}timeblocks"></timeblockcomp>
