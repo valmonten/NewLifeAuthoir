@@ -2,8 +2,8 @@
     <div class="topnotes">
       <h4 (click)="showing()">Notes</h4>
       <div class="{{weekday}}_n_content" style="display:none;">
-        <form>
-          <textarea></textarea>
+        <form (submit)="save()">
+          <textarea [(ngModel)]= "detail" [ngModelOptions]="{standalone: true}">{{Entry}}</textarea>
           <input type="submit" value="Submit">
           <input type="hidden" [value]="day">
         </form>

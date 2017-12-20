@@ -2,8 +2,8 @@
     <h1>{{weekday}}</h1>
     <h2>{{monthday | date: "MMM, d"}}</h2>
     <home class ="{{weekday}}" (toshow)='setchildren("agenda")' [weekday]='weekday'></home>
-    <nav-menu (toshow)='setchildren("notes")' [weekday]='weekday'></nav-menu>
-    <counter (toshow)='setchildren("journal")' [weekday]='weekday'></counter>
+    <navmenu (toshow)='setchildren("notes")' [weekday]='weekday' [date]='monthday'> </navmenu>
+    <counter (toshow)='setchildren("journal")' [weekday]='weekday' [date]='monthday'></counter>
     
   </div>
 

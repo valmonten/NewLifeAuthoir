@@ -7,6 +7,8 @@ using lifeauthor.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Runtime.Serialization.Json;
 using System.IO;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 
 
 namespace lifeauthor.Controllers
@@ -15,6 +17,7 @@ namespace lifeauthor.Controllers
     [Route("api/[controller]")]
     public class SampleDataController : Controller
     {
+
         public DateTime todayy = DateTime.Today;
         // MemoryStream ms = new MemoryStream();
         // DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(Journal));
@@ -23,11 +26,90 @@ namespace lifeauthor.Controllers
         {
             _context= context;
         }
+
+
+
+    // as i click the button, grab data,save it to session, data comes in as object from ts file
+    [HttpPost("[action]")]
+    public IActionResult ForwardSetter([FromBody] object[] changedate)
+    {
+        Calendar something = _context.calendar_table.Where(p => p.dt == (DateTime)changedate[0] ).FirstOrDefault();  
+        var updater = something.calendarid;
+        var updater2 = updater + 7;
+        Calendar something2 = _context.calendar_table.Where(p => p.calendarid == updater2 ).FirstOrDefault();
+        var updater3 = something2.dt;
+
+        HttpContext.Session.SetObjectAsJson("todayy", updater3);
+        // Console.WriteLine(HttpContext.Session.GetObjectFromJson<DateTime>("todayy"));
+        // Console.WriteLine("updater3 is" + updater3);
+        
+        return Ok(updater3);
+    }
+
+    [HttpPost("[action]")]
+    public IActionResult BackwardSetter([FromBody] object[] changedate)
+    {
+        Calendar something = _context.calendar_table.Where(p => p.dt == (DateTime)changedate[0] ).FirstOrDefault();  
+        var updater = something.calendarid;
+        var updater2 = updater - 7;
+        Calendar something2 = _context.calendar_table.Where(p => p.calendarid == updater2 ).FirstOrDefault();
+        var updater3 = something2.dt;
+
+        HttpContext.Session.SetObjectAsJson("todayy", updater3);
+        // Console.WriteLine(HttpContext.Session.GetObjectFromJson<DateTime>("todayy"));
+        // Console.WriteLine("updater3 is" + updater3);
+        
+        return Ok(updater3);
+        
+        
+
+        // DateTime forward = changedate.AddDays(7);
+        // HttpContext.Session.SetObjectAsJson("todayy", forward);
+        // return forward;
+
+
+        // DateTime toprint;
+        // string iDate = "1/1/0001 12:00:00 AM";
+        // DateTime oDate = Convert.ToDateTime(iDate);
+        // System.Console.WriteLine(today);
+        // if(HttpContext.Session.GetObjectFromJson<DateTime>("todayy") == oDate)
+        //     {
+        //         HttpContext.Session.SetObjectAsJson("todayy", today);
+                
+        //     }
+        // else{  toprint = HttpContext.Session.GetObjectFromJson<DateTime>("todayy");
+
+        
+        // }
+    
+        // return toprint;
+    }
+
+    [HttpGet("[action]")]
+    public DateTime TheGetter()
+    {
+        string iDate = "1/1/0001 12:00:00 AM";
+        DateTime oDate = Convert.ToDateTime(iDate);
+        DateTime ndatevar = DateTime.Today;
+        // DateTime datevar = HttpContext.Session.GetObjectFromJson<DateTime>("todayy");
+        if(HttpContext.Session.GetObjectFromJson<DateTime>("todayy") == oDate)
+            {
+                return ndatevar;
+            }
+        else{
+                ndatevar = HttpContext.Session.GetObjectFromJson<DateTime>("todayy");
+                Console.WriteLine(ndatevar);
+                return ndatevar;
+            }
+   
+        
+    }
+    
         
         //get this week's info
-     [HttpGet("[action]")]
+    [HttpGet("[action]")]
         public Calendar CalendarData()
-        {   var mydate = DateTime.Today;
+        {   var mydate = TheGetter();
             Calendar mycalendar = _context.calendar_table.Where(a=>a.dt == mydate ).SingleOrDefault();
             
             //var mydate1 = DateTime.Today.AddDays(-1);
@@ -45,8 +127,8 @@ namespace lifeauthor.Controllers
         public int[] TheWeek(){
             
             int[] weekdays = new int[7];
-            
-            Calendar mytoday = _context.calendar_table.Where(a=>a.dt == todayy).SingleOrDefault();
+            var  datevar = TheGetter();
+            Calendar mytoday = _context.calendar_table.Where(a=>a.dt == datevar).SingleOrDefault();
 
             int todaysid = mytoday.calendarid;
 
@@ -124,7 +206,10 @@ namespace lifeauthor.Controllers
             for(int k=0; k<dailynote.Length; k++){
                 int test = dailynote[k];
             Note notes = _context.notes.Where(a=>a.calendarid == test).SingleOrDefault();
-            mynotes[k]= notes.mynotes;  
+            if(notes == null){
+                mynotes[k]=" ";
+            }
+            else{mynotes[k]= notes.mynotes;}  
             }
             
             return mynotes;
@@ -133,19 +218,22 @@ namespace lifeauthor.Controllers
         [HttpGet("[action]")]
         public String[] JournalData()
         {
-            int[] dailyjournal = TheWeek();
+            int[] dailyjournals = TheWeek();
             String[] myjournals = new String[7];
-            for(int k=0; k<dailyjournal.Length; k++){
-                int test = dailyjournal[k];
+            for(int k=0; k<dailyjournals.Length; k++){
+                int test = dailyjournals[k];
             Journal journals = _context.journals.Where(a=>a.calendarid == test).SingleOrDefault();
-            myjournals[k]= journals.contents;  
+            if(journals == null){
+                myjournals[k]=" ";
+            }
+            else {myjournals[k]= journals.contents;}  
             }
             
             return myjournals;
         }
 
         [HttpPost("[action]")]  
-        public IActionResult Save([FromBody] object[] data)  
+        public IActionResult SaveJournal([FromBody] object[] data)  
         {       
                 
                 bool isNew = false;
@@ -168,6 +256,41 @@ namespace lifeauthor.Controllers
                 _context.SaveChanges();
                 return Ok(plan); 
             
+        } 
+
+        [HttpPost("[action]")]  
+        public IActionResult SaveNotes([FromBody] object[] data)  
+        {       
+                
+                bool isNew = false;
+                Calendar something = _context.calendar_table.Where(p => p.dt == (DateTime)data[1] ).FirstOrDefault();
+                Note plan2 = _context.notes.Where(k => k.calendarid == something.calendarid ).FirstOrDefault();
+                if( plan2 == null){
+                    plan2 = new Note();
+                    isNew = true;
+                }
+                    plan2.mynotes = (string)data[0];
+                    plan2.calendarid = something.calendarid;
+                    plan2.users_id = 1;  
+                    plan2.updated_at = DateTime.Now;  
+                
+                if (isNew){
+                    plan2.created_at = DateTime.Now;
+                   _context.notes.Add(plan2); 
+                }
+                 
+                _context.SaveChanges();
+                return Ok(plan2); 
+            
+        }
+
+        [HttpGet("[action]")]
+        public string Clear()
+        {
+            var hello = "hello";
+            HttpContext.Session.Clear();
+            Console.WriteLine("Hello world");
+            return hello;
         } 
 
 
@@ -224,4 +347,21 @@ namespace lifeauthor.Controllers
 
         
     }
+    public static class SessionExtensions
+{
+    // We can call ".SetObjectAsJson" just like our other session set methods, by passing a key and a value
+    public static void SetObjectAsJson(this ISession session, string key, object value)
+    {
+        // This helper function simply serializes theobject to JSON and stores it as a string in session
+        session.SetString(key, JsonConvert.SerializeObject(value));
+    }
+       
+    // generic type T is a stand-in indicating that we need to specify the type on retrieval
+    public static T GetObjectFromJson<T>(this ISession session, string key)
+    {
+        string value = session.GetString(key);
+        // Upon retrieval the object is deserialized based on the type we specified
+        return value == null ? default(T) : JsonConvert.DeserializeObject<T>(value);
+    }
+}
 }
