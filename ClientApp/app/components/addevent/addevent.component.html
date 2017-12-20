@@ -1,10 +1,10 @@
 <button (click)="showagenda()">Back to Agenda</button>
-<form (submit)="eventadded()">
+<form (submit)="save()">
     
-    <label>Start Time: <input type="time" name="starttime" [(ngModel)]="newevent.start"></label>
-    <label>End Time: <input type="time" name="endtime" [(ngModel)]="newevent.end"></label>
-    <label>Title: <input type="text" name="title" [(ngModel)]="newevent.title"></label>
-    <label>Description:<textarea name="description" [(ngModel)]="newevent.description"></textarea></label>
+    <label>Start Time: <input type="time" name="starttime" [(ngModel)]="newevent.start" [ngModelOptions]="{standalone: true}"></label>
+    <label>End Time: <input type="time" name="endtime" [(ngModel)]="newevent.end" [ngModelOptions]="{standalone: true}"></label>
+    <label>Title: <input type="text" name="title" [(ngModel)]="newevent.title" [ngModelOptions]="{standalone: true}"></label>
+    <label>Description:<textarea name="description" [(ngModel)]="newevent.description" [ngModelOptions]="{standalone: true}"></textarea></label>
     <select name="category" [(ngModel)]="newevent.category">
         <option value="Work">Work</option>
         <option value="Social">Social</option>
