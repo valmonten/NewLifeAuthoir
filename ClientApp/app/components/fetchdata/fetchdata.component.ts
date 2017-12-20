@@ -13,7 +13,7 @@ export class FetchDataComponent {
     
     showdate(){
         var showdate = this.dayarray[3];
-        console.log(this.showdate);
+        // console.log(this.showdate);
     }
      
     
@@ -21,7 +21,7 @@ export class FetchDataComponent {
     public name : string = "Fetching"
 
     setchildren(toshow: string){
-        console.log("We in Fetch showing " + toshow);
+        // console.log("We in Fetch showing " + toshow);
         
     }
     

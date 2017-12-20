@@ -38,8 +38,8 @@ export class HomeComponent {
     }
     datafromchild(data: any[])
     {
-        console.log("This has been triggered in home")
-        console.log(data);
+        // console.log("This has been triggered in home")
+        // console.log(data);
         this.agendalist = data[0];
     }
 

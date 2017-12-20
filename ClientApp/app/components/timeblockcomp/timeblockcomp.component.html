@@ -21,7 +21,7 @@
         <p style="display:none;" class="{{agenda.id}}">{{agenda.description}}</p>
         <p style="display:none;" class="{{agenda.id}}">{{agenda.category}}</p>
     </div>
-    <div *ngIf="agenda.category == 'Spritual'" style="border: solid green 4px; background-color: lightpink;">
+    <div *ngIf="agenda.category == 'Spiritual'" style="border: solid green 4px; background-color: lightpink;">
         <p (click)="showdetails(agenda.id)">{{agenda.title}} {{agenda.start | date:'shortTime'}}-{{agenda.end | date:'shortTime'}}</p>
         <p style="display:none;" class="{{agenda.id}}">{{agenda.description}}</p>
         <p style="display:none;" class="{{agenda.id}}">{{agenda.category}}</p>

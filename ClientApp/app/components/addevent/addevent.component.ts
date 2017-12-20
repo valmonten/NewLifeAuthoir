@@ -52,7 +52,7 @@ export class AddeventComponent {
         this.postData(data)  
             .subscribe(  
             (response) => {  
-                console.log(response);  
+                // console.log(response);  
                 this.eventadded();
                 this.list(); 
             },  
@@ -63,7 +63,7 @@ export class AddeventComponent {
       return this.http.post(this.baseUrl+ 'api/SampleData/SaveNewEvent', data);  
     }
     list() {  
-          this.redirect.navigateByUrl('/home');
+          location.reload();
     }
     
 
