@@ -9,6 +9,7 @@ using System.Runtime.Serialization.Json;
 using System.IO;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
+using System.Data;
 
 
 namespace lifeauthor.Controllers
@@ -332,7 +333,7 @@ namespace lifeauthor.Controllers
             List<Agenda>[] myevents = new List<Agenda>[7];
             for(int k=0; k<dailyevents.Length; k++){
                 int test = dailyevents[k];
-            List<Agenda> agendas = _context.agendas.Where(a=>a.calendarid == test).ToList();
+            List<Agenda> agendas = _context.agendas.Where(a=>a.calendarid == test).OrderBy(d => d.start.TimeOfDay).ToList();
             
             
             myevents[k]= agendas;  

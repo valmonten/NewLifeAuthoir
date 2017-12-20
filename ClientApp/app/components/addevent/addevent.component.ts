@@ -53,13 +53,17 @@ export class AddeventComponent {
             .subscribe(  
             (response) => {  
                 console.log(response);  
-                this.eventadded(); 
+                this.eventadded();
+                this.list(); 
             },  
             (error) => console.log(error)  
             );  
     }  
     postData(data: object) {  
       return this.http.post(this.baseUrl+ 'api/SampleData/SaveNewEvent', data);  
+    }
+    list() {  
+          this.redirect.navigateByUrl('/home');
     }
     
 
