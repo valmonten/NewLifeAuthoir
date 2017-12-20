@@ -6,7 +6,8 @@ import * as $ from "jquery";
 
 @Component({
     selector: 'counter',
-    templateUrl: './counter.component.html'
+    templateUrl: './counter.component.html',
+    styleUrls: ['./counter.component.css']
 })
 export class CounterComponent {
 @Input() weekday: string;

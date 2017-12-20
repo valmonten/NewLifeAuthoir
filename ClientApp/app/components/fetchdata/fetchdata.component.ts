@@ -4,7 +4,9 @@ import * as $ from "jquery";
 
 @Component({
     selector: 'fetchdata',
-    templateUrl: './fetchdata.component.html'
+    templateUrl: './fetchdata.component.html',
+    styleUrls: ['./fetchdata.component.css']
+
 })
 export class FetchDataComponent {
     @Input() weekday: string;

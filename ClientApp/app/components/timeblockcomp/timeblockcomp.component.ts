@@ -6,7 +6,8 @@ import { Agenda } from '../addevent/addevent.component';
 
 @Component({
     selector: 'timeblockcomp',
-    templateUrl: './timeblockcomp.component.html'
+    templateUrl: './timeblockcomp.component.html',
+    styleUrls: ['./timeblockcomp.component.css']
 }) 
 export class TimeblockcompComponent {
     
