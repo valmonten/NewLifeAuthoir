@@ -52,9 +52,9 @@ export class AddeventComponent {
         this.postData(data)  
             .subscribe(  
             (response) => {  
-                console.log(response);  
+                // console.log(response);  
                 this.eventadded();
-                location.reload(); 
+                this.list(); 
             },  
             (error) => console.log(error)  
             );  
@@ -62,9 +62,9 @@ export class AddeventComponent {
     postData(data: object) {  
       return this.http.post(this.baseUrl+ 'api/SampleData/SaveNewEvent', data);  
     }
-    // list() {  
-    //       this.redirect.navigateByUrl('/home');
-    // }
+    list() {  
+          location.reload();
+    }
     
 
 }

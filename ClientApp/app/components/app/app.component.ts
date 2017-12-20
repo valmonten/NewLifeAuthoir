@@ -91,7 +91,7 @@ export class AppComponent {
         this.postDataForward(changedate)  
             .subscribe(  
             (response) => {  
-                console.log(response);
+                // console.log(response);
                 this.list();  
                 
             },  
@@ -106,7 +106,7 @@ export class AppComponent {
         this.postDataBackward(changedate)  
             .subscribe(  
             (response) => {  
-                console.log(response);
+                // console.log(response);
                 this.list();  
                 
             },  

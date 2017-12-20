@@ -99,7 +99,7 @@ namespace lifeauthor.Controllers
             }
         else{
                 ndatevar = HttpContext.Session.GetObjectFromJson<DateTime>("todayy");
-                Console.WriteLine(ndatevar);
+                // Console.WriteLine(ndatevar);
                 return ndatevar;
             }
    
@@ -290,7 +290,7 @@ namespace lifeauthor.Controllers
         {
             var hello = "hello";
             HttpContext.Session.Clear();
-            Console.WriteLine("Hello world");
+            // Console.WriteLine("Hello world");
             return hello;
         } 
 

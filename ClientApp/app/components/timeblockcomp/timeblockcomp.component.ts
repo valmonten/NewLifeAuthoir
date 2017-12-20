@@ -68,12 +68,12 @@ export class TimeblockcompComponent {
         
     }
     agendalisting(){
-        console.log("We in timeblock");
-        console.log(this.agendalist);
+        // console.log("We in timeblock");
+        // console.log(this.agendalist);
     }
     showdetails(something: string)
     {
-        console.log("Triggering");
+        // console.log("Triggering");
         $("."+something).slideToggle();
     }
 

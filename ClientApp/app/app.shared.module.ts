@@ -33,6 +33,8 @@ import { AddeventComponent } from './components/addevent/addevent.component'
             { path: 'home', component: HomeComponent },
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
+            { path: 'addevent', component: AddeventComponent },
+            { path: 'timeblockcomp', component: TimeblockcompComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ]

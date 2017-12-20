@@ -32,9 +32,9 @@ export class NavMenuComponent {
             for( let entry in this.dayarray){
                 if (this.date == this.dayarray[entry]){
                 //fix null exceptions with if statemnt 
-                    console.log(this.DisplayNote[entry])
+                    // console.log(this.DisplayNote[entry])
                     this.Entry = this.DisplayNote[entry];
-                    console.log(this.Entry);
+                    // console.log(this.Entry);
                 }
             }
             
@@ -48,11 +48,11 @@ export class NavMenuComponent {
     }
     save() {
         var data: Array<object> =[this.detail, this.date]
-        console.log(JSON.stringify(data[1])); 
+        // console.log(JSON.stringify(data[1])); 
         this.postData(data)  
             .subscribe(  
             (response) => {  
-                console.log(response);  
+                // console.log(response);  
                 // this.list(); 
             },  
             (error) => console.log(error)  
