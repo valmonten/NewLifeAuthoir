@@ -246,7 +246,7 @@ namespace lifeauthor.Controllers
                 }
                     plan.contents = (string)data[0];
                     plan.calendarid = something.calendarid;
-                    plan.users_id = 1;  
+                    plan.users_id = 2;  
                     plan.updated_at = DateTime.Now;  
                 
                 if (isNew){
@@ -272,7 +272,7 @@ namespace lifeauthor.Controllers
                 }
                     plan2.mynotes = (string)data[0];
                     plan2.calendarid = something.calendarid;
-                    plan2.users_id = 1;  
+                    plan2.users_id = 2;  
                     plan2.updated_at = DateTime.Now;  
                 
                 if (isNew){

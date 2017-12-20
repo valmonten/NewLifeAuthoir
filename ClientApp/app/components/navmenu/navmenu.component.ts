@@ -53,7 +53,7 @@ export class NavMenuComponent {
             .subscribe(  
             (response) => {  
                 console.log(response);  
-                this.list(); 
+                // this.list(); 
             },  
             (error) => console.log(error)  
             );  
@@ -62,9 +62,9 @@ export class NavMenuComponent {
       return this.http.post(this.baseUrl+ 'api/SampleData/SaveNotes', data);  
     }  
     
-    list() {  
-      this.redirect.navigateByUrl('/navmenu');  
-    } 
+    // list() {  
+    //   this.redirect.navigateByUrl('/navmenu');  
+    // } 
     }
     export class Note{
         idnotes: number;

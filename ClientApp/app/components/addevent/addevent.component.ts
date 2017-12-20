@@ -54,7 +54,7 @@ export class AddeventComponent {
             (response) => {  
                 console.log(response);  
                 this.eventadded();
-                this.list(); 
+                location.reload(); 
             },  
             (error) => console.log(error)  
             );  
@@ -62,9 +62,9 @@ export class AddeventComponent {
     postData(data: object) {  
       return this.http.post(this.baseUrl+ 'api/SampleData/SaveNewEvent', data);  
     }
-    list() {  
-          this.redirect.navigateByUrl('/home');
-    }
+    // list() {  
+    //       this.redirect.navigateByUrl('/home');
+    // }
     
 
 }
