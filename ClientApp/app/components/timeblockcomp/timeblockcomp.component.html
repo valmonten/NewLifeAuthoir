@@ -1,5 +1,7 @@
 <button (click)="newagenda()">Add new event</button>
-<div ngfor>
-.title 
-.time
+<div style="border: solid green 4px; background-color: rgb(231, 75, 75);" *ngFor="let agenda of agendalist">
+    <p (click)="showdetails(agenda.title)">{{agenda.title}}</p>
+    <p style="display:none;" class="{{agenda.title}}{{weekday}}">{{agenda.description}}</p>
+    
+    
 </div>

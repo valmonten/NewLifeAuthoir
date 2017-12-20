@@ -1,9 +1,11 @@
 <button (click)="showagenda()">Back to Agenda</button>
 <form (submit)="eventadded()">
-    <label>Time: <input type="time" name="time"></label>
-    <label>Title: <input type="text" name="title"></label>
-    <label>Description:<textarea></textarea></label>
-    <select name="genre">
+    
+    <label>Start Time: <input type="time" name="starttime" [(ngModel)]="newevent.start"></label>
+    <label>End Time: <input type="time" name="endtime" [(ngModel)]="newevent.end"></label>
+    <label>Title: <input type="text" name="title" [(ngModel)]="newevent.title"></label>
+    <label>Description:<textarea name="description" [(ngModel)]="newevent.description"></textarea></label>
+    <select name="category" [(ngModel)]="newevent.category">
         <option value="Work">Work</option>
         <option value="Social">Social</option>
         <option value="Health">Health</option>
