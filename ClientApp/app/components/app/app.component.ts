@@ -1,5 +1,6 @@
-import { Component, Inject, Output, EventEmitter } from '@angular/core';
-import { Http } from '@angular/http';
+import { Component, Inject, Injectable, Input, Output, EventEmitter } from '@angular/core';
+import { Http, Response, RequestOptions, Headers, Request, RequestMethod } from '@angular/http';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import * as $ from "jquery";
 
 @Component({
@@ -35,8 +36,22 @@ export class AppComponent {
 
     public Saturday: string = "Saturday";
     public monthday7: Date;
+    // public data: Date;
+    private route: ActivatedRoute;
+    private redirect: Router;
+    public  lastweek : Date;
+    
 
-    constructor(http: Http, @Inject('BASE_URL') baseUrl: string) {
+
+    constructor(private http: Http, @Inject('BASE_URL') private baseUrl: string) {
+
+        http.get(baseUrl + 'api/SampleData/TheGetter').subscribe(result => {
+            this.lastweek = result.json(); 
+            // console.log(this.lastweek);
+
+        }, error => console.error(error));
+
+
         http.get(baseUrl + 'api/SampleData/CalendarData').subscribe(result => {
             this.dateObject = result.json() as Calendar;
             this.today = result.json().dt;
@@ -66,7 +81,57 @@ export class AppComponent {
 
         }, error => console.error(error));
 
-    
+
+    }
+    forward() {
+        var changedate: Array<object> = [this.today];
+        // console.log(changedate);
+        // var today1 = this.today;
+        // var data = new Date(today1.getFullYear(), today1.getMonth(), today1.getDate() + 7);
+        this.postDataForward(changedate)  
+            .subscribe(  
+            (response) => {  
+                console.log(response);
+                this.list();  
+                
+            },  
+            (error) => console.log(error)  
+            );  
+    }
+    backward() {
+        var changedate: Array<object> = [this.today];
+        // console.log(changedate);
+        // var today1 = this.today;
+        // var data = new Date(today1.getFullYear(), today1.getMonth(), today1.getDate() + 7);
+        this.postDataBackward(changedate)  
+            .subscribe(  
+            (response) => {  
+                console.log(response);
+                this.list();  
+                
+            },  
+            (error) => console.log(error)  
+            );  
+    }
+    postDataBackward(changedate:object) {
+        // console.log(changedate);  
+        return this.http.post(this.baseUrl+ 'api/SampleData/BackwardSetter', changedate);  
+    }  
+    postDataForward(changedate:object) {
+        // console.log(changedate);  
+        return this.http.post(this.baseUrl+ 'api/SampleData/ForwardSetter', changedate);  
+    }
+    list() {
+            location.reload();
+        // this.redirect.navigateByUrl('/app');
+    }
+
+    clear(){
+        return this.http.get(this.baseUrl + 'api/SampleData/Clear').subscribe(result => { 
+            this.list();
+        }, error => console.error(error));
+        
+
 
     }
 

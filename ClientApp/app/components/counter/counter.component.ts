@@ -31,9 +31,9 @@ constructor(private http: Http, @Inject('BASE_URL') private baseUrl: string) {
         for( let entry in this.dayarray){
             if (this.date == this.dayarray[entry]){
             //fix null exceptions with if statemnt 
-                console.log(this.DisplayJournal[entry])
+                // console.log(this.DisplayJournal[entry])
                 this.Entry = this.DisplayJournal[entry];
-                console.log(this.Entry);
+                // console.log(this.Entry);
             }
         }
         
@@ -67,7 +67,13 @@ postData(data: object) {
 list() {  
   this.redirect.navigateByUrl('/counter');  
 } 
+
+
+
+
 }
+
+
 export class Journal{
     idjournals: number;
     contents: String;
