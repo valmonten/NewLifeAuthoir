@@ -23,9 +23,9 @@ export class TimeblockcompComponent {
         console.log("We in timeblock");
         console.log(this.agendalist);
     }
-    showdetails(something: any)
+    showdetails(something: string)
     {
-        console.log(something);
+        console.log(this.agendalist[0].category);
         $("."+something+this.weekday).slideToggle();
     }
 

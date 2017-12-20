@@ -1,7 +1,34 @@
 <button (click)="newagenda()">Add new event</button>
-<div style="border: solid green 4px; background-color: rgb(231, 75, 75);" *ngFor="let agenda of agendalist">
-    <p (click)="showdetails(agenda.title)">{{agenda.title}}</p>
-    <p style="display:none;" class="{{agenda.title}}{{weekday}}">{{agenda.description}}</p>
-    
+<div *ngFor="let agenda of agendalist">
+    <div *ngIf="agenda.category == 'Financial'" style="border: solid green 4px; background-color: rgb(231, 75, 75);">
+        <p (click)="showdetails(agenda.title)">{{agenda.title}} {{agenda.start}}-{{agenda.end}}</p>
+        <p style="display:none;" class="{{agenda.title}}{{weekday}}">{{agenda.description}}</p>
+        <p style="display:none;" class="{{agenda.title}}{{weekday}}">{{agenda.category}}</p>
+    </div>
+    <div *ngIf="agenda.category == 'Work'" style="border: solid green 4px; background-color: lightblue;">
+        <p (click)="showdetails(agenda.title)">{{agenda.title}} {{agenda.start}}-{{agenda.end}}</p>
+        <p style="display:none;" class="{{agenda.title}}{{weekday}}">{{agenda.description}}</p>
+        <p style="display:none;" class="{{agenda.title}}{{weekday}}">{{agenda.category}}</p>
+    </div>
+    <div *ngIf="agenda.category == 'Social'" style="border: solid green 4px; background-color: lightgray;">
+        <p (click)="showdetails(agenda.title)">{{agenda.title}} {{agenda.start}}-{{agenda.end}}</p>
+        <p style="display:none;" class="{{agenda.title}}{{weekday}}">{{agenda.description}}</p>
+        <p style="display:none;" class="{{agenda.title}}{{weekday}}">{{agenda.category}}</p>
+    </div>
+    <div *ngIf="agenda.category == 'Health'" style="border: solid green 4px; background-color: khaki;">
+        <p (click)="showdetails(agenda.title)">{{agenda.title}} {{agenda.start}}-{{agenda.end}}</p>
+        <p style="display:none;" class="{{agenda.title}}{{weekday}}">{{agenda.description}}</p>
+        <p style="display:none;" class="{{agenda.title}}{{weekday}}">{{agenda.category}}</p>
+    </div>
+    <div *ngIf="agenda.category == 'Spritual'" style="border: solid green 4px; background-color: lightpink;">
+        <p (click)="showdetails(agenda.title)">{{agenda.title}} {{agenda.start}}-{{agenda.end}}</p>
+        <p style="display:none;" class="{{agenda.title}}{{weekday}}">{{agenda.description}}</p>
+        <p style="display:none;" class="{{agenda.title}}{{weekday}}">{{agenda.category}}</p>
+    </div>
+    <div *ngIf="agenda.category == 'Intellectual'" style="border: solid green 4px; background-color: magenta;">
+        <p (click)="showdetails(agenda.title)">{{agenda.title}} {{agenda.start}}-{{agenda.end}}</p>
+        <p style="display:none;" class="{{agenda.title}}{{weekday}}">{{agenda.description}}</p>
+        <p style="display:none;" class="{{agenda.title}}{{weekday}}">{{agenda.category}}</p>
+    </div>
     
 </div>
