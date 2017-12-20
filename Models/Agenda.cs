@@ -18,16 +18,16 @@ namespace lifeauthor.Models
         public string title { get; set; }
         public string description { get; set; }
         public string category { get; set; }
-        public int importance { get; set; }
-        public int urgency { get; set; }
+        // public int importance { get; set; }
+        // public int urgency { get; set; }
         public DateTime start { get; set; }
         public DateTime end { get; set; }
         [ForeignKey("users_id")]
         public int users_id { get; set; }
         // public User creator { get; set; }
 
-        [ForeignKey("calendar_dateId")]
-        public int calendar_dateId { get; set; }
+        [ForeignKey("calendarid")]
+        public int calendarid { get; set; }
         // public Calendar calendar { get; set; }
         public DateTime created_at { get; set; }
         public DateTime updated_at { get; set; }

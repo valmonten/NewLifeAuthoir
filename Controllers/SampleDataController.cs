@@ -293,6 +293,38 @@ namespace lifeauthor.Controllers
             return hello;
         } 
 
+        [HttpPost("[action]")]  
+        public IActionResult SaveNewEvent([FromBody] object[] data)  
+        {       
+                
+                bool isNew = false;
+                Calendar something = _context.calendar_table.Where(p => p.dt == (DateTime)data[0] ).FirstOrDefault();
+                Agenda plan = _context.agendas.Where(k => k.id == something.calendarid ).FirstOrDefault();
+                if( plan == null){
+                    plan = new Agenda();
+                    isNew = true;
+                }
+            
+                    plan.title = data[1].ToString();
+                    plan.description = data[2].ToString();
+                    plan.category = data[3].ToString();
+                    plan.start = Convert.ToDateTime(data[4]);
+                    plan.end = Convert.ToDateTime(data[5]);
+                    
+                    plan.calendarid = something.calendarid;
+                    plan.users_id = 1;  
+                    plan.updated_at = DateTime.Now;  
+                
+                if (isNew){
+                    plan.created_at = DateTime.Now;
+                   _context.agendas.Add(plan); 
+                }
+                 
+                _context.SaveChanges();
+                return Ok(plan); 
+            
+        } 
+
 
 
 

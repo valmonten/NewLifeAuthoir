@@ -1,7 +1,7 @@
 <div style="display: inline-block; width: 200px; height:720px; border:black solid 2px; text-align:center; vertical-align:top; background-color:linen; margin-left:5px; margin-top:20px;">
     <h1>{{weekday}}</h1>
     <h2>{{monthday | date: "MMM, d"}}</h2>
-    <home class ="{{weekday}}" (toshow)='setchildren("agenda")' [weekday]='weekday'></home>
+    <home class ="{{weekday}}" (toshow)='setchildren("agenda")' [weekday]='weekday' [date]='monthday'></home>
     <navmenu (toshow)='setchildren("notes")' [weekday]='weekday' [date]='monthday'> </navmenu>
     <counter (toshow)='setchildren("journal")' [weekday]='weekday' [date]='monthday'></counter>
     

@@ -55,7 +55,7 @@ save() {
         .subscribe(  
         (response) => {  
             console.log(response);  
-            this.list(); 
+            // this.list(); 
         },  
         (error) => console.log(error)  
         );  
@@ -64,9 +64,9 @@ postData(data: object) {
   return this.http.post(this.baseUrl+ 'api/SampleData/SaveJournal', data);  
 }  
 
-list() {  
-  this.redirect.navigateByUrl('/counter');  
-} 
+// list() {  
+//   this.redirect.navigateByUrl('/counter');  
+// } 
 
 
 

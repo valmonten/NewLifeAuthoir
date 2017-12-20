@@ -8,7 +8,7 @@ import { Agenda } from '../addevent/addevent.component';
 })
 export class HomeComponent {
     
-    
+    @Input() date: Date;
     @Input() weekday: string;
     public agendalist: Agenda[];
     
