@@ -7,7 +7,8 @@ import * as $ from "jquery";
 
 @Component({
     selector: 'addevent',
-    templateUrl: './addevent.component.html'
+    templateUrl: './addevent.component.html',
+    styleUrls: ['./addevent.component.css']
 }) 
 export class AddeventComponent {
 
