@@ -194,7 +194,7 @@ namespace lifeauthor.Controllers
         [HttpGet("[action]")]
         public User Usersdata()
         {
-            User firstuser = _context.users.Where(User=>User.id == 1).SingleOrDefault();
+            User firstuser = _context.users.Where(User=>User.id == 2).SingleOrDefault();
             return firstuser;
         }
 
@@ -312,7 +312,7 @@ namespace lifeauthor.Controllers
                     plan.end = Convert.ToDateTime(data[5]);
                     
                     plan.calendarid = something.calendarid;
-                    plan.users_id = 1;  
+                    plan.users_id = 2;  
                     plan.updated_at = DateTime.Now;  
                 
                 if (isNew){

@@ -73,8 +73,8 @@ export class TimeblockcompComponent {
     }
     showdetails(something: string)
     {
-        console.log(this.agendalist[0].category);
-        $("."+something+this.weekday).slideToggle();
+        console.log("Triggering");
+        $("."+something).slideToggle();
     }
 
 }
