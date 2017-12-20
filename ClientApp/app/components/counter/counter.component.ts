@@ -50,7 +50,7 @@ showing(){
 }
 save() {
     var data: Array<object> =[this.detail, this.date]
-    console.log(JSON.stringify(data[0])); 
+    // console.log(JSON.stringify(data[0])); 
     this.postData(data)  
         .subscribe(  
         (response) => {  

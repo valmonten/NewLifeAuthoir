@@ -123,7 +123,7 @@ export class AppComponent {
     }
     list() {
             location.reload();
-        // this.redirect.navigateByUrl('/app');
+        // this.redirect.navigateByUrl('/app.component.html');
     }
 
     clear(){
