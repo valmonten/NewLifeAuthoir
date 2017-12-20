@@ -4,6 +4,6 @@
         <p class="{{weekday}}readevent"></p>
         <div class="{{weekday}}_a_content" style="height:500px;">
             <addevent [weekday]='weekday' [date]='date' style="display:none;" class="{{weekday}}addevent" (newagendaemitter)="datafromchild($event)"></addevent>
-            <timeblockcomp [weekday]='weekday' class="{{weekday}}timeblocks" [agendalist]="agendalist"></timeblockcomp>
+            <timeblockcomp [weekday]='weekday' [date]='date' class="{{weekday}}timeblocks" [agendalist]="agendalist"></timeblockcomp>
         </div>
     </div>

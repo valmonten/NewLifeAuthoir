@@ -325,6 +325,22 @@ namespace lifeauthor.Controllers
             
         } 
 
+        [HttpGet("[action]")]
+        public List<Agenda>[] BuildAgenda()
+        {
+            int[] dailyevents = TheWeek();
+            List<Agenda>[] myevents = new List<Agenda>[7];
+            for(int k=0; k<dailyevents.Length; k++){
+                int test = dailyevents[k];
+            List<Agenda> agendas = _context.agendas.Where(a=>a.calendarid == test).ToList();
+            
+            
+            myevents[k]= agendas;  
+            }
+            
+            return myevents;
+        }
+
 
 
 

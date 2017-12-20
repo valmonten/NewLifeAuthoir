@@ -30,30 +30,30 @@ export class AddeventComponent {
     }
     eventadded(){
         
-        this.agendaitems.push(this.newevent);
-        var holder= [];
-        holder[0] = this.agendaitems;
-        holder[1] = this.weekday;
+    //     this.agendaitems.push(this.newevent);
+    //     var holder= [];
+    //     holder[0] = this.agendaitems;
+    //     holder[1] = this.weekday;
         $("."+this.weekday+"addevent").slideUp();
         $("."+this.weekday+"timeblocks").slideDown();
-        // console.log(this.agendaitems);
-        this.newagendaemitter.emit(holder);
-        this.newevent = new Agenda();
+    //     // console.log(this.agendaitems);
+    //     this.newagendaemitter.emit(holder);
+    //     this.newevent = new Agenda();
     }
 
     save() {
         var data: Array<any> =[this.date, this.newevent.title, this.newevent.description, this.newevent.category, this.newevent.start, this.newevent.end]
-        console.log(JSON.stringify(data[0])); 
-        console.log(JSON.stringify(data[1])); 
-        console.log(JSON.stringify(data[2])); 
-        console.log(JSON.stringify(data[3])); 
-        console.log(JSON.stringify(data[4])); 
-        console.log(JSON.stringify(data[5])); 
+        // console.log(JSON.stringify(data[0])); 
+        // console.log(JSON.stringify(data[1])); 
+        // console.log(JSON.stringify(data[2])); 
+        // console.log(JSON.stringify(data[3])); 
+        // console.log(JSON.stringify(data[4])); 
+        // console.log(JSON.stringify(data[5])); 
         this.postData(data)  
             .subscribe(  
             (response) => {  
                 console.log(response);  
-                // this.list(); 
+                this.eventadded(); 
             },  
             (error) => console.log(error)  
             );  
