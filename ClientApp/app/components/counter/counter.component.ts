@@ -12,7 +12,7 @@ import * as $ from "jquery";
 export class CounterComponent {
 @Input() weekday: string;
 @Input() date: Date;
-public detail: object;
+public detail: string;
 public DisplayJournal: Array<string>;
 public dayarray: Array<Date>;
 public Entry: string;
@@ -29,14 +29,35 @@ constructor(private http: Http, @Inject('BASE_URL') private baseUrl: string) {
     http.get(baseUrl + 'api/SampleData/JournalData').subscribe(result => {
         this.DisplayJournal = result.json();
 
-        for( let entry in this.dayarray){
-            if (this.date == this.dayarray[entry]){
-            //fix null exceptions with if statemnt 
-                // console.log(this.DisplayJournal[entry])
-                this.Entry = this.DisplayJournal[entry];
-                // console.log(this.Entry);
-            }
+        if(this.weekday=="Sunday"){
+            this.detail= this.DisplayJournal[0]
         }
+        if(this.weekday=="Monday"){
+            this.detail= this.DisplayJournal[1]
+        }
+
+        if(this.weekday=="Tuesday"){
+            this.detail= this.DisplayJournal[2]
+        }
+
+        if(this.weekday=="Wednesday"){
+            this.detail= this.DisplayJournal[3]
+        }
+
+        if(this.weekday=="Thursday"){
+            this.detail= this.DisplayJournal[4]
+        }
+
+        if(this.weekday=="Friday"){
+            this.detail= this.DisplayJournal[5]
+        }
+
+        if(this.weekday=="Saturday"){
+            this.detail= this.DisplayJournal[6]
+        }
+
+
+        
         
     }, error => console.error(error));
 
@@ -50,7 +71,7 @@ showing(){
     $("."+this.weekday+"_j_content").slideDown();
 }
 save() {
-    var data: Array<object> =[this.detail, this.date]
+    var data: Array<any> =[this.detail, this.date]
     // console.log(JSON.stringify(data[0])); 
     this.postData(data)  
         .subscribe(  
