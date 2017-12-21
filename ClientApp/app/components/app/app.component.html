@@ -8,7 +8,8 @@
 <fetchdata [weekday]='Thursday' [monthday]='monthday5'></fetchdata>
 <fetchdata [weekday]='Friday' [monthday]='monthday6'></fetchdata>
 <fetchdata [weekday]='Saturday' [monthday]='monthday7'></fetchdata>
-<button (click) = "backward()">backward</button><button (click) = "forward()">forward</button><button (click) = "clear()">today</button>
+
+<div class="buttonbox"><button class="move" (click) = "backward()">backward</button><button class="move" (click) = "forward()">forward</button><button class="move" (click) = "clear()">today</button></div>
 
 <!-- <p *ngIf="!lastweek"> click forward button to see  last week's date  </p> -->
 <!-- <p *ngIf="lastweek"> {{lastweek}} </p> -->

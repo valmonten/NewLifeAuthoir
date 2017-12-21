@@ -1,0 +1,22 @@
+button{
+    border-radius: 8px;
+    background-color : #4CAF50;
+    box-shadow: none;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 10px;
+    border: 2px solid #39454d;
+    outline: 3px;
+    border-color: #39454d;
+    
+
+}
+button:hover {
+    background-color: rgb(194, 191, 189); /* Green */
+    color: white;
+}
+form{
+    padding-left: 6px;
+    padding-right: 10px;
+}

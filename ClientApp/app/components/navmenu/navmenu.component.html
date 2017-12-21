@@ -1,10 +1,10 @@
 
     <div class="topnotes">
-      <h4 (click)="showing()">Notes</h4>
+      <button (click)="showing()">NOTES</button>
       <h1></h1>
       <div class="{{weekday}}_n_content" style="display:none;">
         <form (submit)="save()">
-          <textarea [(ngModel)]= "detail" name="description"></textarea>
+          <textarea rows="32" cols="20" [(ngModel)]= "detail" name="description"></textarea>
           <input type="submit" value="Submit">
           <input type="hidden" [value]="day">
         </form>

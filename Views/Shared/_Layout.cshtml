@@ -7,12 +7,37 @@
     <base href="~/" />
     <style>
         body {
-        background: linear-gradient(to bottom, #003366 -25%, #33ccff 77%); 
+        background: #39454d; 
+    }
+    .move{
+        border-radius: 8px;
+        background-color : rgb(194, 191, 189);
+        box-shadow: none;
+        padding: 5px;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-bottom: 10px;
+        border: 2px solid #4CAF50;
+        outline: 3px;
+        border-color: #39454d;
+        margin-right: 10px;
+        
+    
+    }
+    .move:hover {
+        background-color: #4CAF50; /* Green */
+        color: white;
+    }
+    .buttonbox{
+        margin-top: 30px;
+        margin-left: 39%;
+        margin-right: 35%;
+        align-content: center;
     }
     </style>
 
-    <link rel="stylesheet" href="~/dist/vendor.css" asp-append-version="true" />
-    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0-beta.2/cosmo/bootstrap.min.css" rel="stylesheet" >
+    <!-- <link rel="stylesheet" href="~/dist/vendor.css" asp-append-version="true" /> -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0-beta.2/cosmo/bootstrap.min.css" rel="stylesheet" > -->
 </head>
 <body>
     @RenderBody()

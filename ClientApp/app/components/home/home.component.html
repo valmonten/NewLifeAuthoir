@@ -1,6 +1,6 @@
 
     <div class="topAgenda">
-        <h4 (click)="showing()">Agenda</h4>
+        <button (click)="showing()">AGENDA</button>
         <p class="{{weekday}}readevent"></p>
         <div class="{{weekday}}_a_content" style="height:500px;">
             <addevent [weekday]='weekday' [date]='date' style="display:none;" class="{{weekday}}addevent" (newagendaemitter)="datafromchild($event)"></addevent>
