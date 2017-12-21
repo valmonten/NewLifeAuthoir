@@ -4,7 +4,7 @@
       <h1></h1>
       <div class="{{weekday}}_n_content" style="display:none;">
         <form (submit)="save()">
-          <textarea rows="32" cols="20" [(ngModel)]= "detail" name="description"></textarea>
+          <textarea rows="28" cols="20" [(ngModel)]= "detail" name="description"></textarea>
           <input type="submit" value="Submit">
           <input type="hidden" [value]="day">
         </form>
